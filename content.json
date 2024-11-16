@@ -1,0 +1,75 @@
+{
+    "articles": [
+      {
+        "title": "Getting Started with Rust",
+        "content": "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety...",
+        "date": "2024-03-20",
+        "author": "John Doe",
+        "tags": ["rust", "programming", "beginners"]
+      },
+      {
+        "title": "WebAssembly and Rust",
+        "content": "WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine...",
+        "date": "2024-03-21",
+        "author": "Jane Smith",
+        "tags": ["rust", "wasm", "web-development"]
+      },
+      {
+        "title": "Python for Data Science",
+        "content": "Python is a versatile language, and its libraries like NumPy and pandas make it a powerhouse for data analysis...",
+        "date": "2024-04-15",
+        "author": "Alice Johnson",
+        "tags": ["python", "data-science", "programming"]
+      },
+      {
+        "title": "Building Web Apps with JavaScript",
+        "content": "JavaScript is the backbone of web development, enabling dynamic and interactive content on websites...",
+        "date": "2024-05-10",
+        "author": "Bob Lee",
+        "tags": ["javascript", "web-development", "frontend"]
+      },
+      {
+        "title": "Introduction to Go for Backend Development",
+        "content": "Go is a statically typed language designed for simplicity and performance, making it a favorite for backend services...",
+        "date": "2024-06-05",
+        "author": "Carlos Martinez",
+        "tags": ["go", "backend", "programming"]
+      },
+      {
+        "title": "Mastering TypeScript",
+        "content": "TypeScript adds static typing to JavaScript, improving developer productivity and catching errors at compile time...",
+        "date": "2024-07-12",
+        "author": "Diana Scott",
+        "tags": ["typescript", "javascript", "programming"]
+      },
+      {
+        "title": "Getting Started with C++",
+        "content": "C++ is a powerful language widely used for game development and performance-critical applications...",
+        "date": "2024-08-18",
+        "author": "Ethan Turner",
+        "tags": ["c++", "programming", "performance"]
+      },
+      {
+        "title": "Exploring the Functional Side of Kotlin",
+        "content": "Kotlin's support for functional programming makes it a modern and concise choice for Android development...",
+        "date": "2024-09-20",
+        "author": "Fiona Green",
+        "tags": ["kotlin", "functional-programming", "android"]
+      },
+      {
+        "title": "A Beginner's Guide to Swift",
+        "content": "Swift is the language of choice for developing iOS and macOS applications, combining safety and performance...",
+        "date": "2024-10-05",
+        "author": "George Hall",
+        "tags": ["swift", "ios", "macos"]
+      },
+      {
+        "title": "Introduction to Ruby on Rails",
+        "content": "Ruby on Rails is a web development framework that emphasizes convention over configuration for rapid development...",
+        "date": "2024-11-01",
+        "author": "Hannah White",
+        "tags": ["ruby", "rails", "web-development"]
+      }
+    ]
+  }
+  

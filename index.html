@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolt UI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import init from './pkg/bolt.js';
+        // Wait for both WASM and content to load
+        Promise.all([
+            init(),
+            new Promise(resolve => {
+                if (window.__CONTENT) {
+                    resolve();
+                } else {
+                    window.addEventListener('contentLoaded', () => resolve());
+                }
+            })
+        ]).catch(console.error);
+    </script>
+</head>
+<body>
+</body>
+</html>
