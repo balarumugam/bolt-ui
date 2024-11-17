@@ -1,6 +1,6 @@
 # Rust WASM Web Application
 
-A modern web application built with Rust and WebAssembly, featuring a component-based architecture, state management, routing, and Protocol Buffers for content delivery.
+A modern web application built with Rust and WebAssembly, featuring a component-based architecture, state management, routing, and etc.,
 
 ## Features
 
@@ -26,7 +26,7 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 │ ├── components/ # Reusable UI components
 │ ├── state/ # Application state management
 │ ├── router/ # Client-side routing
-│ ├── content_loader/ # Content loading with Protocol Buffers
+│ ├── content_loader/ # Content loading with xhr
 │ ├── theme/ # Theme management
 │ ├── utils/ # Utility functions
 │ ├── rsx/ # RSX macros for UI composition
@@ -44,7 +44,6 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 - wasm-pack
 - wasm32-unknown-unknown target
 - Node.js (for serving static files)
-- Protocol Buffers compiler (protoc)
 
 ## Installation
 
