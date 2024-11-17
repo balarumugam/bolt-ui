@@ -41,6 +41,47 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 ├── build.rs # Build script for Protocol Buffers
 └── Cargo.toml
 
+## Prerequisites
+
+- Rust (latest stable version)
+- Rust nightly toolchain
+- wasm-pack
+- wasm32-unknown-unknown target
+- Node.js (for serving static files)
+- Protocol Buffers compiler (protoc)
+
+## Installation
+
+1. Install Rust using rustup (if not already installed):
+
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+
+2. Install and set Rust nightly:
+
+Install nightly toolchain
+
+
+# Install nightly toolchain
+
+  # Set nightly as default (optional)
+    rustup default nightly
+  # Or use per-project override
+    rustup override set nightly
+
+3. Add WebAssembly target:
+
+rustup target add wasm32-unknown-unknown
+
+4. Install wasm-pack:
+
+cargo install wasm-pack
+
+5. Install basic-http-server (for serving the application) or use vscode liveserver to load the index.html:
+
+cargo install basic-http-server
+
 
 ## Getting Started
 
@@ -53,7 +94,7 @@ cd your-project-name
 
 2. Install dependencies:
 
-bash
+
 cargo install wasm-pack
 cargo install basic-http-server
 
@@ -68,17 +109,13 @@ wasm-pack build --target web
 basic-http-server . or you can use the liveserver from vs code to load index.html which will serve the application.
 
 
-5. Open your browser and navigate to `http://localhost:4000`
+5. Open your browser and navigate to `http://localhost:4000` or use liveserver which will open the application.
 
 ## Development
 
-### Building Protocol Buffers
+## Routing
 
-The project uses Protocol Buffers for content delivery. To update the content:
-
-1. Modify the content definition in `src/content.proto`
-2. Generate new content:
-
+Added a `router.rs` which is handling rendering specific page by navigate.
 
 ### Adding New Components
 
