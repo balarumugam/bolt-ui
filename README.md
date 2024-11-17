@@ -8,7 +8,6 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 - 🎨 Theme switching (light/dark mode)
 - 🔄 State management
 - 📱 Client-side routing
-- 📦 Protocol Buffers for efficient content delivery
 - ✨ Component-based architecture
 - 📝 Todo list functionality
 - 🔢 Counter example
