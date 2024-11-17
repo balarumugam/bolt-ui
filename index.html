@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <script type="module">
         import init from './pkg/bolt.js';
-        // Wait for both WASM and content to load
         Promise.all([
             init(),
         ]).catch(console.error);
