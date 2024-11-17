@@ -18,7 +18,6 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 - Rust (latest stable version)
 - wasm-pack
 - Node.js (for serving static files)
-- Protocol Buffers compiler (protoc)
 
 ## Project Structure 
 
