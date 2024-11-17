@@ -10,13 +10,6 @@
         // Wait for both WASM and content to load
         Promise.all([
             init(),
-            new Promise(resolve => {
-                if (window.__CONTENT) {
-                    resolve();
-                } else {
-                    window.addEventListener('contentLoaded', () => resolve());
-                }
-            })
         ]).catch(console.error);
     </script>
 </head>
