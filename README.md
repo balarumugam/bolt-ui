@@ -83,13 +83,11 @@ cargo install basic-http-server
 
 1. Clone the repository:
 
-bash
-git clone https://github.com/yourusername/your-project-name.git
-cd your-project-name
+git clone https://github.com/balarumugam/bolt-ui.git
+cd bolt-ui
 
 
 2. Install dependencies:
-
 
 cargo install wasm-pack
 cargo install basic-http-server
