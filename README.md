@@ -154,7 +154,7 @@ Built-in performance monitoring for:
 
 ### Run tests
 
-- wasm-pack test( with must specify at least one of `--node`, `--chrome`, `--firefox`, or `--safari` these flags)
+wasm-pack test (with must specify at least one of `--node`, `--chrome`, `--firefox`, or `--safari` these flags)
 
 ## Contributing
 
