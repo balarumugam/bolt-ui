@@ -152,6 +152,10 @@ Built-in performance monitoring for:
 - State updates
 - Content loading
 
+### Run tests
+
+- wasm-pack test( with must specify at least one of `--node`, `--chrome`, `--firefox`, or `--safari` these flags)
+
 ## Contributing
 
 1. Fork the repository
