@@ -35,8 +35,6 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 ├── static/
 │ ├── index.html
 │ ├── styles.css
-│ └── content.pb # Protocol Buffer encoded content
-├── build.rs # Build script for Protocol Buffers
 └── Cargo.toml
 
 ## Prerequisites
