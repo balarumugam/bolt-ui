@@ -32,7 +32,6 @@ A modern web application built with Rust and WebAssembly, featuring a component-
 │ ├── rsx/ # RSX macros for UI composition
 │ ├── performance/ # Performance monitoring
 │ └── lib.rs # Main application entry
-├── static/
 │ ├── index.html
 │ ├── styles.css
 └── Cargo.toml
@@ -82,20 +81,21 @@ cargo install basic-http-server
 
 1. Clone the repository:
 
-git clone https://github.com/balarumugam/bolt-ui.git
-cd bolt-ui
+  git clone https://github.com/balarumugam/bolt-ui.git
+  cd bolt-ui
 
 
 2. Install dependencies:
 
-cargo install wasm-pack
-cargo install basic-http-server
+  cargo install wasm-pack
+  cargo install basic-http-server
 
 
 3. Build the project:
 
-wasm-pack build --target web
+  wasm-pack build --target web
 
+  after running the above command, you could find `pkg` folder, which will serve the wasm via index.html.
 
 4. Serve the application:
 
