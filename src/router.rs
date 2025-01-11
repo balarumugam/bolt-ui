@@ -1,10 +1,13 @@
+use std::default;
+
 use wasm_bindgen::prelude::*;
 use web_sys::{window, console, History};
 use crate::state::STATE;
 use crate::log_stats;
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Default, Debug, PartialEq)]
 pub enum Route {
+    #[default]
     Home,
     Articles,
     About,
