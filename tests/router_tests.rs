@@ -1,8 +1,9 @@
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use bolt_ui::Route;
     use wasm_bindgen_test::*;
-    use web_sys::window;
+    use web_sys::{window, console};
+
 
     wasm_bindgen_test_configure!(run_in_browser);
 

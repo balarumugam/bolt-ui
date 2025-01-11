@@ -1,5 +1,5 @@
 [package]
-name = "bolt"
+name = "bolt-ui"
 version = "0.1.0"
 edition = "2021"
 
@@ -46,3 +46,4 @@ lto = true
 codegen-units = 1
 panic = "abort"
 strip = true
+debug = false

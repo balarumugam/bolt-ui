@@ -7,6 +7,10 @@ mod rsx;
 mod content_loader;
 mod router;
 mod performance;
+// mod canvas_anim;
+// mod line_chart;
+
+use web_sys::window;
 
 use performance::{measure, log_stats};
 use router::{Route, get_current_route, navigate_to};
@@ -23,6 +27,7 @@ use crate::counter::counter_actions;
 use crate::toggle_theme::toggle_theme_button;
 use crate::visibility::toggle_visibility;
 use content_loader::{Content, load_content};
+// use line_chart::{Chart, LineData, DataPoint};
 
 // Generic event handler that can handle both mouse and keyboard events
 pub fn action_handler(action: state::actions::Action) -> impl FnMut(web_sys::Event) {
@@ -30,7 +35,7 @@ pub fn action_handler(action: state::actions::Action) -> impl FnMut(web_sys::Eve
 }
 
 // Rendering
-fn render() {
+pub fn render() {
     STATE.with(|state| {
         let state = state.borrow();
 
@@ -46,15 +51,10 @@ fn render() {
         }
         
         // Update counter
-        if let Some(elem) = get_document().get_element_by_id("count") {
-            let mut buffer = itoa::Buffer::new();
-            elem.set_text_content(Some(buffer.format(state.counter)));
-        }
+        render_counter();
 
         // Update theme
-        if let Some(root) = get_document().get_element_by_id("app") {
-            root.set_class_name(&state.theme.to_str());
-        }
+        render_theme();
 
         // Update visibility
         if let Some(content) = get_document().get_element_by_id("content") {
@@ -68,12 +68,43 @@ fn render() {
         }
 
         // Update todo list
-        if let Some(container) = get_document().get_element_by_id("todo-container") {
-            let new_todo_list = todo_list();
-            container.set_inner_html("");
-            append_child!(container, new_todo_list);
-        }
+        render_todos();
     });
+}
+
+pub fn render_todos() {
+    // Update todo list
+    if let Some(container) = get_document().get_element_by_id("todo-container") {
+        let new_todo_list = todo_list();
+        container.set_inner_html("");
+        append_child!(container, new_todo_list);
+    }
+}
+
+pub fn render_counter() {
+    let counter = STATE.with(|state| state.borrow().counter);
+    // Update counter
+    if let Some(elem) = get_document().get_element_by_id("count") {
+        let mut buffer = itoa::Buffer::new();
+        elem.set_text_content(Some(buffer.format(counter)));
+    }
+}
+
+pub fn render_theme() {
+    let theme = STATE.with(|state| state.borrow().theme.to_str());
+    if let Some(root) = get_document().get_element_by_id("app") {
+        root.set_class_name(theme);
+    }
+}
+
+pub fn render_visibility() {
+    let visibility = STATE.with(|state| state.borrow().visibility.to_str());
+    if let Some(content) = get_document().get_element_by_id("content") {
+        let new_content = content.dyn_into::<HtmlElement>().unwrap();
+        new_content.style()
+            .set_property("display", visibility)
+            .unwrap();
+    }
 }
 
 fn render_articles(content: Content) -> Element {
@@ -167,6 +198,28 @@ pub fn start() -> Result<(), JsValue> {
     main()
 }
 
+
+// fn render_anim_chart() -> Result<(), JsValue> {
+//     let canvas = get_document().get_element_by_id("canvas")
+//         .expect("canvas should exist")
+//         .dyn_into::<HtmlCanvasElement>()?;
+        
+//     let ctx = canvas
+//         .get_context("2d")?
+//         .unwrap()
+//         .dyn_into::<CanvasRenderingContext2d>()?;
+        
+//     let chart = canvas_anim::Animation::new()?;
+
+//     chart.start()?;
+
+//     // chart.draw_box()?;
+
+//     Ok(())
+
+// }
+
+
 pub fn main() -> Result<(), JsValue> {
     let document = get_document();
     let body = document.body().expect("not found");
@@ -206,7 +259,14 @@ pub fn main() -> Result<(), JsValue> {
             toggle_theme_button()
         });
 
+        // append_child!(body, &rsx!(canvas { 
+        //     id = "chart", height = 400, width = 600,
+        //     style="border: 1px solid"
+        // }));
+        
         append_child!(body, &app);
+
+        // let _ = render_line_chart();
 
         if let Some(root) = document.get_element_by_id("app") {
             state.theme_provider.apply_theme_to_element(&root)

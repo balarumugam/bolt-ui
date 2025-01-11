@@ -18,7 +18,7 @@ pub fn add_todo(text: String) {
             completed: false,
         });
         state
-    });
+    }, Some(crate::render_todos));
 }
 
 pub fn handle_add_todo(event: Option<web_sys::Event>) {

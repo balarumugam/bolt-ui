@@ -10,7 +10,7 @@ thread_local! {
     pub static STATE: RefCell<AppState> = RefCell::new(AppState::default());
 }
 
-pub fn update_state<F>(updater: F)
+pub fn update_state<F>(updater: F, render_fn: Option<impl Fn()>)
 where
     F: FnOnce(AppState) -> AppState,
 {
@@ -18,10 +18,34 @@ where
         let new_state = updater(state.borrow().clone());
         *state.borrow_mut() = new_state;
     });
-    crate::render();
+    match render_fn {
+        Some(unified_render) => unified_render(),
+        None => crate::render(),
+    }
+    // crate::render();
 }
 
 pub fn dispatch(action: Action) {
+
+    // Initialize render_fn and update it before calling update_state
+    let mut render_fn: Option<fn()> = None;
+
+    // Update render_fn based on the action
+    match action {
+        Action::Todo(_) => {
+            render_fn = Some(crate::render_todos);
+        },
+        Action::Counter(_) => {
+            render_fn = Some(crate::render_counter);
+        },
+        Action::ToggleTheme => {
+            render_fn = Some(crate::render_theme);
+        },
+        Action::ToggleVisibility => {
+            render_fn = Some(crate::render_visibility);
+        }
+    }
+
     update_state(|mut state| {
         match action {
             Action::Counter(op) => {
@@ -65,5 +89,5 @@ pub fn dispatch(action: Action) {
             },
         }
         state
-    });
+    }, render_fn)
 }

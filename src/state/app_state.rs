@@ -36,3 +36,12 @@ impl Default for AppState {
         }
     }
 }
+
+impl Visibility {
+    pub fn to_str(&self) -> &'static str {
+        match self {
+            Visibility::Shown => "block",
+            Visibility::Hidden => "none",
+        }
+    }
+}
