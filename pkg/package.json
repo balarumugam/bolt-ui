@@ -1,0 +1,15 @@
+{
+  "name": "bolt-ui",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "bolt_ui_bg.wasm",
+    "bolt_ui.js",
+    "bolt_ui.d.ts"
+  ],
+  "main": "bolt_ui.js",
+  "types": "bolt_ui.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
